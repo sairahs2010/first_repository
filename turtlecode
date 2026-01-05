@@ -1,0 +1,25 @@
+from turtle import Turtle, Screen
+from random import randint
+class RaceTurtle(Turtle):
+    def __init__(self, color, positionx, positiony):
+        super().__init__()
+        self.shape("turtle")
+        self.color(color)
+        self.penup()
+        self.goto(positionx, positiony)
+    def randomly(self):
+        rand_num = randint(1, 10)
+        self.forward(rand_num)
+
+window = Screen()
+window.title("Racing Turtles Game")
+window.setup(width=500, height=400)
+colorList = ["red", "orange", "yellow", "green", "blue", "purple"]
+ycoordinates = [-130, -80, -30, 20, 70, 120]
+for i in range(len(colorList)):
+    turtle = RaceTurtle(colorList[i], -230, ycoordinates[i])
+
+user_guess = window.textinput(
+    title="which turtle will win?",
+    prompt="Which turtle will win the race? (red, orange, yellow, green, blue, purple):"
+    )
